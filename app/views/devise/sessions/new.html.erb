@@ -1,0 +1,34 @@
+<%= stylesheet_link_tag 'signupin', media: 'all', 'data-turbolinks-track' => true %>
+
+<div class="ui middle aligned center aligned grid loginForm">
+  <div class="column loginColumn">
+    <h2 class="ui orange image header loginImage">
+      로그인
+    </h2>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: "ui large form"}) do |f| %>
+<div class="ui raised segment loginBox">
+  <div class="ui field">
+    <%= f.label :email, :class => 'ui left aligned header' %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="ui field">
+    <%= f.label :name, '비밀번호', :class => 'ui left aligned header' %>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class= "ui checkbox">
+      <%= f.check_box :remember_me %>
+      <%= f.label :name, '기억하기' %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in", :class => 'ui fluid small yellow submit button' %>
+  </div>
+<% end %>
+  </div>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

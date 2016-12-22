@@ -1,0 +1,36 @@
+body > .loginForm {
+  height: 100% !important;
+}
+.loginImage {
+  margin-top: -100px;
+}
+.loginBox {
+  margin-bottom: 10px !important;
+}
+.ui.checkbox {
+  float: left;
+  margin-bottom : 10px;
+}
+
+@media(min-width: 450px){
+  .loginColumn {
+  max-width: 450px;
+  }
+}
+@media(max-width: 449px){
+  .loginColumn {
+  max-width: 350px;
+  margin-top: 50px;
+  }
+
+}
+@media(max-width: 599px){
+  .loginColumn {
+    margin-top: 50px;
+  }
+}
+.sns {
+  margin-bottom: 10px !important;
+  font-family: 'Spoqa Han Sans', 'Sans-serif' !important;
+  font-weight: normal !important;
+}

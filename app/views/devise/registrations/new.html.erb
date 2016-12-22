@@ -1,0 +1,36 @@
+<%= stylesheet_link_tag 'signupin', media: 'all', 'data-turbolinks-track' => true %>
+
+<div class="ui middle aligned center aligned grid loginForm">
+  <div class="column loginColumn">
+    <h2 class="ui orange image header loginImage">
+      회원가입
+    </h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {class: "ui large form"}) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="ui raised segment loginBox">
+      <div class="field">
+        <%= f.label :email, :class => 'ui left aligned header' %>
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :name, '비밀번호', :class => 'ui left aligned header' %>
+        <!--<% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 자 이상이어야 합니다.)</em>
+        <% end %><br />-->
+        <%= f.password_field :password, autocomplete: "off", :placeholder => '6자 이상이어야 합니다.' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :name, '비밀번호 확인', :class => 'ui left aligned header' %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "회원가입", :class => 'ui fluid small yellow submit button'%>
+      </div>
+        <% end %>
+    </div>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
