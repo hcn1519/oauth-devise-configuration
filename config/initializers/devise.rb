@@ -16,7 +16,10 @@ Devise.setup do |config|
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
+  config.omniauth :facebook, "key", "secret"
+  config.omniauth :google_oauth2, "key", "secret"
 
+  config.omniauth :kakao, "key", :redirect_path => "/users/auth/kakao/callback" 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
 
