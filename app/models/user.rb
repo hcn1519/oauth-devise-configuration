@@ -20,17 +20,22 @@ class User < ApplicationRecord
       unless self.where(email: auth.info.email).exists?
         # 없다면 새로운 데이터를 생성한다.
         if user.nil?
-          # 트위터는 email을 제공하지 않음
-          if auth.provider == "twitter"
+          # 카카오는 email을 제공하지 않음
+          if auth.provider == "kakao"
+            # provider(회사)별로 데이터를 제공해주는 hash의 이름이 다릅니다.
+            # 각각의 omnaiuth별로 auth hash가 어떤 경로로, 어떤 이름으로 제공되는지 확인하고 설정해주세요.
             user = User.new(
-              remote_profile_img_url: auth.info.image.gsub('http://','https://'),
+              profile_img: auth.info.image,
+              # 이 부분은 AWS S3와 연동할 때 프로필 이미지를 저장하기 위해 필요한 부분입니다.
+              # remote_profile_img_url: auth.info.image.gsub('http://','https://'),
               password: Devise.friendly_token[0,20]
             )
 
           else
             user = User.new(
               email: auth.info.email,
-              remote_profile_img_url: auth.info.image.gsub('http://','https://'),
+              profile_img: auth.info.image,
+              # remote_profile_img_url: auth.info.image.gsub('http://','https://'),
               password: Devise.friendly_token[0,20]
             )
           end
