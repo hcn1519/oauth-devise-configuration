@@ -14,11 +14,10 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
-  # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  # oauth를 설정한 부분입니다.
   config.omniauth :facebook, ENV["Facebook_Key"], ENV["Facebook_Secret"]
-  config.omniauth :google_oauth2, ENV["Google_Key"], ENV[""]
-  config.omniauth :kakao, ENV["Kakao_Key"], :redirect_path => "/users/auth/kakao/callback" 
+  config.omniauth :google_oauth2, ENV["Google_Key"], ENV["Google_Secret"]
+  config.omniauth :kakao, ENV["Kakao_Key"], :redirect_path => "/users/auth/kakao/callback"
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
 

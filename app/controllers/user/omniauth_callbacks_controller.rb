@@ -14,10 +14,12 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
     }
   end
+
   [:kakao, :facebook, :google_oauth2].each do |provider|
     provides_callback_for provider
   end
 
+  # provider별로 서로 다른 로그인 경로 설정
   def after_sign_in_path_for(resource)
     auth = request.env['omniauth.auth']
     @identity = Identity.find_for_oauth(auth)
@@ -30,7 +32,7 @@ class User::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         register_info1_path
       end
     else
-      home_main_path
+      visitor_main_path
     end
 
   end

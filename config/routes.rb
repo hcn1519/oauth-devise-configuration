@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'register/info1'
+  get 'register/info2'
+  post 'register/infoget'
   root 'visitor#main'
   get 'visitor/main'
 

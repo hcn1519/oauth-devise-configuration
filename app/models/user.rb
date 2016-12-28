@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
@@ -54,10 +52,6 @@ class User < ApplicationRecord
 
   # email이 없어도 가입이 되도록 설정
   def email_required?
-    false
-  end
-
-  def email_changed?
     false
   end
 end

@@ -1,0 +1,22 @@
+// Place all the styles related to the register controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body > .nicForm {
+  height: 100% !important;
+}
+.nicImage {
+  margin-top: -100px;
+}
+@media(min-width: 450px){
+  .nicColumn {
+  width: 100% !important;
+  max-width: 450px;
+  }
+}
+@media(max-width: 449px){
+  .nicColumn {
+  width: 100% !important;
+  max-width: 350px;
+  }
+}
